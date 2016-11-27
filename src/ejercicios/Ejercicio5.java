@@ -1,5 +1,5 @@
 //Implementa un procedimiento que reciba los coeficientes de una ecuación de segundo grado e
-//imprima por pantalla las raíces obtenidas al resolver la ecuación.
+//imprima por pantalla las raíces obtenidas al resolver la ecuación
 
 package ejercicios;
 
@@ -8,31 +8,23 @@ import java.util.Scanner;
 public class Ejercicio5 {
 
 	public static void main(String[] args) {
-		int a, b, t;
+		double coef1,coef2,t;
+		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduzca los coeficientes en orden acabado en el termino independiente");
-		a = sc.nextInt();
-		b = sc.nextInt();
+		System.out.println("Introduzca los coeficientes en orden terminando por el termino independiente");
+		coef1 = sc.nextInt();
+		coef2 = sc.nextInt();
 		t = sc.nextInt();
-		
-		double raiz = raiz(a,b,t);
-		double denominador = 2 * a;
-		double primerResultado = ecuacionPositiva(b, raiz, denominador);
-		double segundoResultado = ecuacionNegativa(b, raiz, denominador);
-		System.out.println("x1 = " + primerResultado);
-		System.out.println("x2 = " + segundoResultado);
-		
-	}
-	private static double raiz(int a, int b, int t){
-		
-		return Math.sqrt(Math.pow(b, 2) - 4 * a * t);
+		sc.close();
+		Ejercicio5.ecuacion(coef1,coef2,t);		
 	}
 	
-	private static double ecuacionNegativa(int b, double raiz, double denominador){
-	 return (-b - (raiz))/ denominador;
-	}
-	
-	private static double ecuacionPositiva(int b, double raiz, double denominador){
-		return (-b + (raiz))/ denominador;
+	public static double ecuacion (double c1,double c2,double t){
+		double resultado;
+		// double potencia = Math.pow(2, c2); 
+		double raiz = Math.sqrt(((int)c2^2)-(4 * c1 * t));
+		resultado = (-c2 + raiz) / (2*c1);
+		return resultado;
+		
 	}
 }
